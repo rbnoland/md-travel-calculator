@@ -25,16 +25,14 @@ import Section from "../components/Section.astro";
   <Section>
     <h2>Data</h2>
     <p>
-      The calculator relies on data collected by the New Jersey Department of
-      Transportation (NJDOT) and publicly available at:
+      The calculator relies on data collected by the Maryland Department of
+      Transportation (MDOT) and publicly available at:
       <a
         target="_blank"
-        href="https://www.nj.gov/transportation/refdata/roadway/vmt.shtm"
-        >https://www.nj.gov/transportation/refdata/roadway/vmt.shtm</a
-      >. We use the files listed under “VMT by Functional Classification
-      Distributed by County” for each year in the calculator. These data are
-      in pdf files and were transferred to an Excel file for further
-      processing.
+        href="https://roads.maryland.gov/mdotsha/Pages/index.aspx?PageId=302"
+        >https://roads.maryland.gov/mdotsha/Pages/index.aspx?PageId=302
+        </a
+      >. Data is available in either Excel or pdf format.
     </p>
     <p>
       The data provide estimates of road mileage and annual VMT by county for seven
@@ -51,40 +49,24 @@ import Section from "../components/Section.astro";
       We combined some of the road classifications to minimize those
       instances in which there were zero road miles (for example, many of
       the more urbanized counties had no roads classified as rural or had
-      minimal miles of roads under that category). A shortcoming of New
-      Jersey’s data is that we do not have lane mileage data, only road
-      mileage (center-line miles). Based on a
-      <a
-        target="_blank"
-        href="https://rutgers.app.box.com/file/1365361429302">pdf file</a
-      >
-      provided by NJDOT, we applied conversion factors to the road mile data
-      as to approximate the lane miles for each functional class. These are shown
-      in the table below and represent average state-level one-directional measures
-      of the number of lanes for each functional classification.
-    </p>
-    <p>
-      Road classifications available in the data are listed in the table and
-      those that were combined are shown. For urban roads we combined
-      interstates with freeways/expressways as these both largely have
+      minimal miles of roads under that category). We combined
+      interstates with principal arterials/freeways/expressways as these both largely have
       identical road designs, including being largely controlled access
-      highways. For urban roads we combined interstates with two additional
-      road types encompassing freeways and principal arterials. For both
-      urban and rural collector roads we combined major and minor
-      collectors. In total we have five urban road categories and four rural
-      road categories in the calculator. This was done for all
-      <a target="_blank" href="https://njac.org/new-jersey-counties/"
-        >21 counties in New Jersey</a
-      >.
-    </p>
-    <p>
+      highways. We also combined major and minor collector roads into one category. In total we have 
+      five road categories for both urban and rural roads in the calculator. The data includes both annual 
+      vehicle miles of travel and lane miles for each road type for all 23 counties 
+      plus Baltimore City (which is equivalent to a county jurisdiction).
+        </p>
+       <p>
       Our first year of data is 2017 and we will update to the latest year
       available. Caution should be used when analyzing data and interpreting
       results for 2020 and 2021 due to changes in travel patterns due to the
       COVID pandemic.
     </p>
-    <p>We also include an estimate of CO2 emissions. This is estimated based on the average on-road transportation CO2 emissions per mile for the entire state which is 483.2 grams/mile. Data on total state on-road transportation emissions was taken from the <a target="_blank" href="https://dep.nj.gov/wp-content/uploads/climatechange/nj_pcap_final-1.pdf"
-        >2024 New Jersey Priority Climate Action Plan</a> and is an average of light-duty and heavy-duty vehicle emissions.</p>
+    <p>We also include an estimate of CO2 equivalent emissions. This is estimated based on the average on-road 
+      transportation CO2 equivalent emissions per mile for the entire state which is 361.5 grams/mile. Data on 
+      total state on-road transportation emissions was taken from the <a target="_blank" href="https://mde.maryland.gov/programs/Air/ClimateChange/Pages/GreenhouseGasInventory.aspx"
+        >Maryland Greenhouse Gas Inventory</a> using 2020 data.</p>
     <p>
       Elasticity assumptions in the calculator are shown in the table for
       each road classification. In general, the empirical evidence suggests
@@ -95,105 +77,79 @@ import Section from "../components/Section.astro";
       “back-calculator” which allows the estimation of an “implied
       elasticity” based on forecast growth in VMT associated with a capacity
       expansion. This can be thought of as the elasticity implied by any
-      forecasts of travel done by NJDOT or a local agency promoting the
+      forecasts of travel done by a state DOT or a local agency promoting the
       capacity expansion. The assumption often made, is that there is no
       change in VMT attributable to the expansion, despite the evidence for
       induced travel. The user of the calculator is thus able to assess
       whether estimates made in forecasts are reasonable.
-    </p>
-    <table>
-      <caption>Elasticity estimates used in the calculator</caption>
-      <colgroup>
-        <col style="width: 26%" />
-        <col style="width: 34%" />
-        <col style="width: 17%" />
-        <col style="width: 21%" />
-      </colgroup>
-      <thead>
-        <tr class="header">
-          <th colspan="2"><strong>Urban areas</strong></th>
-          <th><strong>Factor to convert to lane miles</strong></th>
-          <th><strong>Elasticity range</strong></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="odd">
-          <td>Interstates</td>
-          <td rowspan="2">Interstate/Freeways/Expressways</td>
-          <td rowspan="2">3</td>
-          <td rowspan="2">0.7 - 1.0</td>
-        </tr>
-        <tr class="even">
-          <td>Freeways/Expressways</td>
-        </tr>
-        <tr class="odd">
-          <td>Principal arterials</td>
-          <td>Principal arterials</td>
-          <td>2.5</td>
+     </p>
+
+     
+     
+     
+
+
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <style>
+              table {
+                  margin: auto;
+                  border-collapse: collapse;
+              }
+              th, td {
+                  border: 1px solid black;
+                  padding: 8px;
+                  text-align: left;
+              }
+              caption {
+                  caption-side: top;
+                  font-weight: bold;
+                  margin-bottom: 10px;
+              }
+              colgroup col:first-child {
+                  width: 25%;
+              }
+              colgroup col:last-child {
+                  width: 10%;
+              }
+          </style>
+      </head>
+
+<body>
+      <table>
+        <caption>Elasticity estimates used in the calculator</caption>
+      <tr>
+          <th></th>
+          <th>Elasticity range</th>
+      </tr>
+      <tr>
+          <td>Interstate/Freeways/Expressways</td>
           <td>0.7 - 1.0</td>
-        </tr>
-        <tr class="even">
+      </tr>
+      <tr>
+          <td>Principal Arterial Other</td>
+          <td>0.7 - 1.0</td>
+      </tr>
+      <tr>
           <td>Minor arterials</td>
-          <td>Minor arterials</td>
-          <td>1</td>
           <td>0.5 - 0.7</td>
-        </tr>
-        <tr class="odd">
-          <td>Major collectors</td>
-          <td rowspan="2">Major and Minor collectors</td>
-          <td rowspan="2">1</td>
-          <td rowspan="2">0.5 - 0.7</td>
-        </tr>
-        <tr class="even">
-          <td>Minor collectors</td>
-        </tr>
-        <tr class="odd">
-          <td>Local</td>
-          <td>Local</td>
-          <td>1</td>
-          <td>0.3 - 0.5</td>
-        </tr>
-        <tr class="even">
-          <td colspan="2"><strong>Rural areas</strong></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr class="odd">
-          <td>Interstates</td>
-          <td rowspan="3">Interstate/Principal arterial/freeways</td>
-          <td rowspan="3">3</td>
-          <td rowspan="3">0.7 - 1.0</td>
-        </tr>
-        <tr class="even">
-          <td>Principal arterials/freeways</td>
-        </tr>
-        <tr class="odd">
-          <td>Principal arterial - other</td>
-        </tr>
-        <tr class="even">
-          <td>Minor arterials</td>
-          <td>Minor arterials</td>
-          <td>1</td>
+      </tr>
+      <tr>
+          <td>Major and Minor collectors</td>
           <td>0.5 - 0.7</td>
-        </tr>
-        <tr class="odd">
-          <td>Major collectors</td>
-          <td rowspan="2">Major and Minor collectors</td>
-          <td rowspan="2">1</td>
-          <td rowspan="2">0.5 - 0.7</td>
-        </tr>
-        <tr class="even">
-          <td>Minor collectors</td>
-        </tr>
-        <tr class="odd">
+      </tr>
+      <tr>
           <td>Local</td>
-          <td>Local</td>
-          <td>1</td>
           <td>0.3 - 0.5</td>
-        </tr>
-      </tbody>
-    </table>
+      </tr>
+  </table>
+</body>
+    
   </Section>
+
   <Section>
     <h2>Calculations</h2>
     <p>
