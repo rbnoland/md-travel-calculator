@@ -1,0 +1,156 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Section from "../components/Section.astro";
+---
+
+<style>
+  table {
+    border: 1px solid black;
+  }
+  table caption {
+    font-weight: bold;
+    margin-bottom: 0.75em;
+    caption-side: top;
+    text-align: center;
+  }
+  img {
+    display: block;
+    width: 70%;
+    max-width: 500px;
+    margin: 1.5rem auto;
+  }
+</style>
+
+<BaseLayout pageTitle="Theory">
+  <Section>
+    <h2>Theory of induced travel</h2>
+    <p>
+      In evaluating whether or how much induced travel may occur it is necessary
+      to understand the underlying economic and behavioral impacts that occur
+      when additional road capacity is added to a network. Adding more lanes to
+      a road or extending an existing road will have immediate effects on
+      reducing travel time, or the cost of travel, and secondary impacts of
+      making more land accessible for development. Travel time costs tend to be
+      the major cost associated with vehicle travel and this is associated with
+      congestion levels. As such, any reduction in congestion leads to faster
+      traffic and reduced travel time costs. Basic economic theory implies that
+      a reduction in the cost of a good (in this case vehicle travel time) leads
+      to an increase in consumption, in this case, more vehicle travel.
+    </p>
+    <p>
+      This can be graphically explained by reference to the figure below. When
+      supply and demand are in equilibrium the price or cost of travel is P1 and
+      the quantity is Q1. Any increase in road capacity, i.e., the supply of
+      roads, shifts the supply curve from S1 to S2, with a consequent reduction
+      in price (cost) of travel to P2 and increase in quantity traveled to Q2.
+      In this example, the induced travel effect has increased total travel and
+      the elasticity of demand is positive. The elasticity of demand represents
+      the change in travel in response to a change in price, in this case, more
+      lane capacity leads to a reduction in price and more travel. Additional
+      growth in travel may still occur, for example, due to population growth
+      and will shift the demand curve further to the right leading to a further
+      increase in travel to Q3. However, the growth in population within an area
+      may be due to the added development that occurs when new road capacity is
+      built.
+    </p>
+    <img
+      src="/images/elastic-demand-supply.png"
+      alt="Elastic Demand & Supply"
+    />
+    <p>
+      Not accounting for induced travel (or the demand response to price
+      reductions) assumes an inelastic vertical demand curve as shown in the
+      figure below. When a demand curve is inelastic, this means that demand is
+      not responsive to a change in price. In this case, any added supply (the
+      shift from S1 to S2) leads to a reduction in price from P1 to P2, while
+      the quantity of travel remains the same, Q1=Q2. Any observed increase in
+      congestion is assumed to be due to other external factors, such as
+      population growth, which as previously mentioned may actually be due to
+      the capacity increase. This is represented by the shift in the demand
+      curve to D2.
+    </p>
+    <img
+      src="/images/inelastic-demand-supply.png"
+      alt="Inelastic Demand & Supply"
+    />
+    <p>
+      While simple economic theory can explain induced travel, the actual
+      behavioral impacts are more complex. For example, one of the first things
+      that is typically observed when capacity is increased is the “return to
+      the peak”, that is the peak level of traffic congestion stays the same as
+      those who traveled at less preferred times of day shift back to the peak.
+      For example, a commuter who travels very early in the morning (or late in
+      the morning) to avoid the morning peak, now travels at a more preferred
+      time. This is beneficial to the commuter who sees a benefit in traveling
+      at their preferred time of day, but the morning peak of congestion remains
+      the same. This effect will also reduce congestion levels during the
+      “shoulder” of the peak period, potentially allowing more travel to be
+      induced at those times.
+    </p>
+    <p>
+      Other behavioral effects may be more dependent on the specific context and
+      geographic environment of any road expansion. These include shifts from
+      alternative routes to what is now a faster route. For example, some
+      travelers may have used a parallel arterial road that took about the same
+      time as the congested freeway. If the freeway is now faster, travelers
+      will shift to it and prior congestion levels will return. Expanded
+      capacity that reduces travel costs can also lead to both longer trips and
+      more trips.
+    </p>
+    <p>
+      Areas with good public transit systems, especially those that access
+      central areas, may see a shift from transit use to vehicle travel that
+      diminishes the travel time reductions that any capacity expansion may
+      initially provide. In most parts of the country, this effect is far less
+      pronounced than in the past given the low ridership levels on many transit
+      systems. The Downs-Thomson paradox (see
+      <a target="_blank" href="https://www.jstor.org/stable/29775281"
+        >Arnott &amp; Small, 1994</a
+      >) described this effect. The argument was that road capacity increases
+      were self-defeating due to shifts from transit; expansions in road
+      capacity shifted transit users to vehicles, leading to reduced transit
+      service frequencies, which further shifted transit users to driving until
+      the transit system could no longer justify providing service. Thus, in the
+      end, congestion and traffic levels on the expanded road are higher than
+      before the capacity addition.
+    </p>
+    <p>
+      Induced travel is often described as having a short-run and long-run
+      effect and corresponding short and long-run elasticities. There is no
+      standard time-frame as to what is considered short-run as most of the
+      behavioral changes in travel patterns can occur quite quickly. Longer run
+      effects are usually associated with changes in land use and development
+      patterns.
+    </p>
+    <p>
+      Again, we can turn to standard economic theory to understand these longer
+      run impacts. Cities and regions have grown over time, in response to
+      changes in transportation technology that have allowed for faster travel.
+      As reductions in travel time increase, more distant land becomes more
+      accessible and available for development. In the 19<sup>th</sup> century, the
+      commuter railroads spurred development outside the city, but this was clustered
+      within walking distance of the station. With the advent of motor vehicles new
+      and more distant development was highly dependent on cars which were relatively
+      faster, reducing travel time costs. These type of development impacts may account
+      for a substantial share of induced travel effects and population growth in
+      car-dependent areas. Furthermore, while they are often defined as the “long
+      term” impacts, developers anticipate the opening of new capacity and build
+      long before that capacity is completed, thus a new freeway may be full on opening
+      day!
+    </p>
+    <p>
+      Thus, the theoretical basis for induced travel is well established.
+      However, critics of induced travel typically argue that roads are built
+      and expanded based on forecasts of increased demand. That is, one should
+      expect roads to fill up after capacity is increased. However, research has
+      found that increases in vehicle travel are induced by capacity additions.
+      Critics also often argue over the definition of induced travel and ignore
+      the longer run consequences of how expanded roads affect development
+      patterns. To a large extent, these arguments boil down to value judgements
+      on preferred development patterns, whether areas should be built to be
+      more compact and walkable or more sprawling and auto-dependent. The latter
+      development pattern will have greater environmental and climate impacts
+      than the former.
+    </p>
+  </Section>
+</BaseLayout>
