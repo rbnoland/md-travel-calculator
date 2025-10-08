@@ -79,13 +79,13 @@
           of road type
           <span id="modal-facility-type" class="fw-bold text-warning"></span> and
           an annual VMT of
-          <span id="modal-vmt" class="fw-bold text-warning"></span>. A project
+          <span id="modal-vmt" class="fw-bold text-warning"></span> million. A project
           adding
           <span id="modal-new-lane-miles" class="fw-bold text-warning"></span> lane
           miles would add between
           <span id="modal-min-miles-added" class="fw-bold text-warning"></span> and
           <span id="modal-max-miles-added" class="fw-bold text-warning"></span>
-          annual vehicle miles traveled. This calculation used a minimum elasticity
+          million annual vehicle miles of travel. This calculation used a minimum elasticity
           of <span id="modal-min-elasticity" class="fw-bold text-warning"
           ></span>
           and a maximum elasticity of <span
@@ -228,7 +228,12 @@
       return;
     }
 
-    const nf = new Intl.NumberFormat("en-US");
+    // Helper to format numbers with a controlled number of fraction digits.
+    // Usage: formatNum(value, digits) — digits defaults to 0 (integer-style formatting).
+    function formatNum(value: number, digits = 0) {
+      if (value === null || value === undefined || !isFinite(value)) return "";
+      return new Intl.NumberFormat("en-US", { maximumFractionDigits: digits }).format(Number(value));
+    }
 
     const yearSpan = document.getElementById("modal-year")!;
     yearSpan.innerText = String(year);
@@ -237,40 +242,41 @@
     countySpan.innerText = county;
 
     const laneMilesSpan = document.getElementById("modal-lane-miles")!;
-    laneMilesSpan.innerText = nf.format(laneMiles);
+    laneMilesSpan.innerText = formatNum(laneMiles, 0);
 
     const newLaneMilesSpan = document.getElementById("modal-new-lane-miles")!;
-    newLaneMilesSpan.innerText = nf.format(newLaneMiles);
+    // Show new lane miles with one decimal to preserve small project sizes (e.g. 0.5 miles)
+    newLaneMilesSpan.innerText = formatNum(newLaneMiles, 1);
 
     const facilityTypeSpan = document.getElementById("modal-facility-type")!;
     facilityTypeSpan.innerText = facilityType;
 
     const vmtSpan = document.getElementById("modal-vmt")!;
-    vmtSpan.innerText = nf.format(vmt);
+    // Show VMT in millions (e.g., 12.34 million annual VMT)
+    vmtSpan.innerText = formatNum(vmt / 1000000.0, 2);
 
     const minMilesAdded = (newLaneMiles / laneMiles) * vmt * minElast;
     const minMilesAddedSpan = document.getElementById("modal-min-miles-added")!;
-    minMilesAddedSpan.innerText = nf.format(Math.round(minMilesAdded));
+    // Show miles added in millions, rounded to two decimals
+    minMilesAddedSpan.innerText = formatNum(minMilesAdded / 1000000.0, 2);
 
     const maxMilesAdded = (newLaneMiles / laneMiles) * vmt * maxElast;
     const maxMilesAddedSpan = document.getElementById("modal-max-miles-added")!;
-    maxMilesAddedSpan.innerText = nf.format(Math.round(maxMilesAdded));
+    maxMilesAddedSpan.innerText = formatNum(maxMilesAdded / 1000000.0, 2);
 
     const minElastSpan = document.getElementById("modal-min-elasticity")!;
-    minElastSpan.innerText = nf.format(minElast);
+    // Elasticities are small decimal values; show two decimal places
+    minElastSpan.innerText = formatNum(minElast, 2);
 
     const maxElastSpan = document.getElementById("modal-max-elasticity")!;
-    maxElastSpan.innerText = nf.format(maxElast);
+    maxElastSpan.innerText = formatNum(maxElast, 2);
 
     const minCO2Span = document.getElementById("modal-min-co2")!;
-    minCO2Span.innerText = nf.format(
-      Math.round((361.5 * minMilesAdded) / 1000000.0),
-    );
+    // CO2 metric tons: show as integer metric tons
+    minCO2Span.innerText = formatNum((361.5 * minMilesAdded) / 1000000.0, 0);
 
     const maxCO2Span = document.getElementById("modal-max-co2")!;
-    maxCO2Span.innerText = nf.format(
-      Math.round((483.2 * maxMilesAdded) / 1000000.0),
-    );
+    maxCO2Span.innerText = formatNum((483.2 * maxMilesAdded) / 1000000.0, 0);
 
     showResultsModal();
   }
